@@ -74,7 +74,32 @@
           <p class="tips">和 alert 的区别只是多了一个 cancel 按钮</p>
         </div>
       </div>
+    </div>
 
+    <div class="module-wrapper root-module">
+      <h1>tooltip</h1>
+      <div class="box">
+        <div class="top">
+          <h-tooltip content="ni hao ma?" placement="top">
+            <button>top</button>
+          </h-tooltip>
+        </div>
+        <div class="left">
+          <h-tooltip content="ni hao ma?" placement="left">
+            <button>left</button>
+          </h-tooltip>
+        </div>
+        <div class="right">
+          <h-tooltip content="ni hao ma?" placement="right">
+            <button>right</button>
+          </h-tooltip>
+        </div>
+        <div class="bottom">
+          <h-tooltip content="ni hao ma?" placement="bottom">
+            <button>bottom</button>
+          </h-tooltip>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -385,5 +410,19 @@ export default {
 .tips {
   font-size: 12px;
   color: #666;
+}
+.module-wrapper .box {
+  box-sizing: border-box;
+  width: 200px;
+  margin: auto;
+}
+.module-wrapper .left {
+  float: left;
+}
+.module-wrapper .right {
+  float: right;
+}
+.module-wrapper .bottom {
+ clear: both;
 }
 </style>

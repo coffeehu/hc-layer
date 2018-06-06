@@ -2,8 +2,10 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import HTooltip from './packages/tooltip'
 
 Vue.config.productionTip = false
+Vue.use(HTooltip);
 
 /* eslint-disable no-new */
 new Vue({

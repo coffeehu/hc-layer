@@ -32,6 +32,30 @@ body {
   padding: 0;
   margin: 0;
 }
+
+/*----------------------动画------------------*/
+.h-anime-fade-enter-active {
+  animation-duration: .2s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+  animation-name: fadeIn;
+}
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.h-anime-fade-leave-to {
+  opacity: 0;
+}
+.h-anime-fade-leave-active {
+  -webkit-transition: opacity .2s linear;
+  transition: opacity .2s linear;
+}
+
 /*-------------------遮罩层----------------------*/
 .h-modal {
   position: fixed;
@@ -407,4 +431,62 @@ body {
   opacity: 0;
   -webkit-transform: translateY(-20px);
   transform: translateY(-20px);
+}
+
+/*-------------------- h-tooltip ---------------------*/
+.h-tooltip--popper {
+  position: absolute;
+  z-index: 2000;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 1.2;
+  background: #303133;
+  color: #fff;
+}
+.h-popper--arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+}
+.h-tooltip--popper[x-placement^=top] {
+  margin-bottom: 10px;
+}
+.h-tooltip--popper[x-placement^=top] .h-popper--arrow {
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top-color: #303133;
+  border-bottom-width: 0;
+}
+.h-tooltip--popper[x-placement^=bottom] {
+  margin-top: 10px;
+}
+.h-tooltip--popper[x-placement^=bottom] .h-popper--arrow {
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom-color: #303133;
+  border-top-width: 0;
+}
+.h-tooltip--popper[x-placement^=left] {
+  margin-right: 10px;
+}
+.h-tooltip--popper[x-placement^=left] .h-popper--arrow {
+  top: 50%;
+  right: -6px;
+  transform: translateY(-50%);
+  border-left-color: #303133;
+  border-right-width: 0;
+}
+.h-tooltip--popper[x-placement^=right] {
+  margin-left: 10px;
+}
+.h-tooltip--popper[x-placement^=right] .h-popper--arrow {
+  top: 50%;
+  left: -6px;
+  transform: translateY(-50%);
+  border-right-color: #303133;
+  border-left-width: 0;
 }
