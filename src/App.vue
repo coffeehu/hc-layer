@@ -76,7 +76,7 @@
       </div>
     </div>
 
-    <div class="module-wrapper root-module">
+    <div class="module-wrapper root-module fixed-btn">
       <h1>tooltip</h1>
       <div class="box">
         <div class="top">
@@ -100,6 +100,10 @@
           </h-tooltip>
         </div>
       </div>
+    </div>
+
+    <div class="module-wrapper root-module">
+      <h1>loading</h1>
     </div>
 
   </div>
@@ -389,6 +393,9 @@ export default {
 .module-wrapper button:hover {
   color: #666;
 }
+.fixed-btn button {
+  width: 80px;
+}
 #app .module-wrapper h1 {
   text-align: left;
   padding-left: 30px;
@@ -416,11 +423,15 @@ export default {
   width: 200px;
   margin: auto;
 }
+.module-wrapper .top {
+  margin-bottom: 20px;
+} 
 .module-wrapper .left {
   float: left;
 }
 .module-wrapper .right {
   float: right;
+  margin-bottom: 20px;
 }
 .module-wrapper .bottom {
  clear: both;
