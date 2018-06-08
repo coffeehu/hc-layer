@@ -104,6 +104,8 @@
 
     <div class="module-wrapper root-module">
       <h1>loading</h1>
+      <div style="background:pink;width:300px;height:200px" v-loading="loading1"></div>
+      <button @click="toggle1">toggle loading1</button>
     </div>
 
   </div>
@@ -120,7 +122,7 @@ export default {
   name: 'App',
   data() {
     return {
-      shadow: false
+      loading1: false
     }
   },
   components: {
@@ -348,6 +350,11 @@ export default {
           showClose: true
         });
       })
+    },
+
+
+    toggle1() {
+      this.loading1 = !this.loading1;
     }
 
 

@@ -490,3 +490,72 @@ body {
   border-right-color: #303133;
   border-left-width: 0;
 }
+
+/*-------------------- loading ---------------------*/
+.h-loading-mask {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255,.5);
+}
+.h-loading-spinner {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+}
+.h-is-relative {
+  position: relative!important;
+}
+.h-loading-mask.h-is-fullscreen {
+  position: fixed;
+}
+
+.loading-circle-wrapper {
+  -webkit-animation: h-roate 2s ease-in-out infinite;
+  animation: h-roate 2s ease-in-out infinite;
+}
+@-webkit-keyframes h-roate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes h-roate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loading-circle {
+  stroke: #409EFF;
+  stroke-dasharray:234,380;
+  animation: h-loading 1.5s ease-in-out infinite;
+}
+@-webkit-keyframes h-loading {
+  0% {
+    stroke-dasharray:5,500;
+  }
+  50% {
+    stroke-dasharray:234,380;
+    stroke-dashoffset: -40;
+  }
+  100% {
+    stroke-dasharray:234,380;
+    stroke-dashoffset: -288;
+  }
+}
+@keyframes h-loading {
+  0% {
+    stroke-dasharray:5,500;
+  }
+  50% {
+    stroke-dasharray:234,380;
+    stroke-dashoffset: -40;
+  }
+  100% {
+    stroke-dasharray:234,380;
+    stroke-dashoffset: -288;
+  }
+}
