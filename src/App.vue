@@ -102,10 +102,48 @@
       </div>
     </div>
 
-    <div class="module-wrapper root-module">
+    <div class="module-wrapper root-module loading-module">
       <h1>loading</h1>
-      <div style="background:pink;width:300px;height:200px" v-loading="loading1"></div>
-      <button @click="toggle1">toggle loading1</button>
+      <div>
+        <div style="background:pink;width:100%;height:200px;margin-bottom:20px" v-loading="loading1"></div>
+        <button @click="toggle1">默认</button>  
+      </div>
+
+      <div>
+        <div style="background:pink;width:100%;height:200px;margin-bottom:20px" v-loading="loading2" h-loading-type="2"></div>
+        <button @click="toggle2">载入动画type=2</button>  
+      </div>
+
+      <div>
+        <div style="background:pink;width:100%;height:200px;margin-bottom:20px"
+         v-loading="loading3" 
+         h-loading-type="3"></div>
+        <button @click="toggle3">载入动画type=3</button>  
+      </div>
+
+      <div>
+        <div style="background:pink;width:100%;height:200px;margin-bottom:20px" v-loading.fullscreen="loading4"></div>
+        <div  v-loading.fullscreen.lock="loading5"></div>
+        <button @click="toggle4" style="font-size:1vw;padding:10px 2px">fullscreen</button>
+        <button @click="toggle5" style="font-size:1vw;padding:10px 2px">lockscroll</button>
+      </div>
+
+      <div>
+        <div style="background:pink;width:100%;height:200px;margin-bottom:20px"
+         v-loading="loading6"
+         h-loading-text="拼命加载中"></div>
+        <button @click="toggle6">文字1</button>  
+      </div>
+
+      <div>
+        <div style="background:pink;width:100%;height:200px;margin-bottom:20px"
+         v-loading="loading7"
+         h-loading-text="拼命加载中"
+         h-loading-text-type="horizontal"
+         h-loading-type="3"></div>
+        <button @click="toggle7">文字2</button>  
+      </div>
+
     </div>
 
   </div>
@@ -122,7 +160,13 @@ export default {
   name: 'App',
   data() {
     return {
-      loading1: false
+      loading1: false,
+      loading2: false,
+      loading3: false,
+      loading4: false,
+      loading5: false,
+      loading6: false,
+      loading7: false,
     }
   },
   components: {
@@ -355,8 +399,31 @@ export default {
 
     toggle1() {
       this.loading1 = !this.loading1;
-    }
-
+    },
+    toggle2() {
+      this.loading2 = !this.loading2;
+    },
+    toggle3() {
+      this.loading3 = !this.loading3;
+    },
+    toggle4() {
+      this.loading4 = !this.loading4;
+      setTimeout(() => {
+        if(this.loading4) this.loading4 = false;
+      }, 1500);
+    },
+    toggle5() {
+      this.loading5 = !this.loading5;
+      setTimeout(() => {
+        if(this.loading5) this.loading5 = false;
+      }, 1500);
+    },
+    toggle6() {
+      this.loading6 = !this.loading6;
+    },
+    toggle7() {
+      this.loading7 = !this.loading7;
+    },
 
 
   }
@@ -412,15 +479,6 @@ export default {
   text-align: center;
   font-size: 30px;
 }
-/*#app .root-module > .module-wrapper:nth-of-type(1) {
-  border-color: #a8def5;
-}
-#app .root-module > .module-wrapper:nth-of-type(2) {
-  border-color: pink;
-}
-#app .root-module > .module-wrapper:nth-of-type(3) {
-  border-color: burlywood;
-}*/
 .tips {
   font-size: 12px;
   color: #666;
@@ -442,5 +500,12 @@ export default {
 }
 .module-wrapper .bottom {
  clear: both;
+}
+
+.loading-module > div {
+  display: inline-block;
+  width:40%;
+  padding:20px 20px 0;
+  box-sizing:border-box;
 }
 </style>

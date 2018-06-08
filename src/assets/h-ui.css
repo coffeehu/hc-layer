@@ -12,6 +12,19 @@ body {
   overflow: hidden;
   overflow-y: scroll;
 }
+.h-is-relative {
+  position: relative!important;
+}
+.h-is-overflow-hidden {
+  overflow: hidden!important;
+}
+.h-is-inlineblock {
+  display: inline-block!important;
+}
+.h-is-middle {
+  vertical-align: middle!important;
+}
+
 .h-scrollbar--wrap {
   overflow: scroll;
   height: 100%;
@@ -54,6 +67,26 @@ body {
 .h-anime-fade-leave-active {
   -webkit-transition: opacity .2s linear;
   transition: opacity .2s linear;
+}
+/*转动*/
+@-webkit-keyframes h-roate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes h-roate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/*透明渐变*/
+@-webkit-keyframes h-fade{
+    0%{opacity:0;}
+    100%{opacity:1;}
+}
+@keyframes h-fade{
+    0%{opacity:0;}
+    100%{opacity:1;}
 }
 
 /*-------------------遮罩层----------------------*/
@@ -507,27 +540,15 @@ body {
   width: 100%;
   text-align: center;
 }
-.h-is-relative {
-  position: relative!important;
-}
 .h-loading-mask.h-is-fullscreen {
   position: fixed;
 }
-
+/*载入动画--遮罩层*/
 .loading-circle-wrapper {
   -webkit-animation: h-roate 2s ease-in-out infinite;
   animation: h-roate 2s ease-in-out infinite;
 }
-@-webkit-keyframes h-roate {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes h-roate {
-  100% {
-    transform: rotate(360deg);
-  }
-}
+/*默认的载入动画，type=1*/
 .loading-circle {
   stroke: #409EFF;
   stroke-dasharray:234,380;
@@ -558,4 +579,145 @@ body {
     stroke-dasharray:234,380;
     stroke-dashoffset: -288;
   }
+}
+/*载入动画:花朵转动; type=2*/
+.h-loading-flower{
+  position: relative;
+  width: 36px;
+  height: 36px;
+  margin: auto;
+}
+.h-loading-flower .lines{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.h-loading-flower .lines > div{
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.h-loading-flower .lines > div:before,
+.h-loading-flower .lines > div:after{
+  position: absolute;
+  left: 0;
+  content: "";
+  height: 25%;
+  width: 100%;
+  background: #7b7b7b;
+  border-radius: 3px;
+}
+.h-loading-flower .lines > div:before{
+  top: 0;
+}
+.h-loading-flower .lines > div:after{
+  bottom: 0;
+}
+.h-loading-flower .lines > div:nth-child(2){
+  -webkit-transform:rotate(30deg);
+}
+.h-loading-flower .lines > div:nth-child(3){
+  -webkit-transform:rotate(60deg);
+}
+.h-loading-flower .lines > div:nth-child(4){
+  -webkit-transform:rotate(90deg);
+}
+.h-loading-flower .lines > div:nth-child(5){
+  -webkit-transform:rotate(120deg);
+}
+.h-loading-flower .lines > div:nth-child(6){
+  -webkit-transform:rotate(150deg);
+}
+.h-loading-flower .lines > div:nth-child(1):before{
+  -webkit-animation:h-fade 1.2s linear 0s infinite;
+}
+.h-loading-flower .lines > div:nth-child(2):before{
+  -webkit-animation:h-fade 1.2s linear .1s infinite;
+}
+.h-loading-flower .lines > div:nth-child(3):before{
+  -webkit-animation:h-fade 1.2s linear .2s infinite;
+}
+.h-loading-flower .lines > div:nth-child(4):before{
+  -webkit-animation:h-fade 1.2s linear .3s infinite;
+}
+.h-loading-flower .lines > div:nth-child(5):before{
+  -webkit-animation:h-fade 1.2s linear .4s infinite;
+}
+.h-loading-flower .lines > div:nth-child(6):before{
+  -webkit-animation:h-fade 1.2s linear .5s infinite;
+}
+.h-loading-flower .lines > div:after{
+  -webkit-animation:h-fade 1.2s linear .6s infinite;
+}
+.h-loading-flower .lines > div:nth-child(2):after{
+  -webkit-animation:h-fade 1.2s linear .7s infinite;
+}
+.h-loading-flower .lines > div:nth-child(3):after{
+  -webkit-animation:h-fade 1.2s linear .8s infinite;
+}
+.h-loading-flower .lines > div:nth-child(4):after{
+  -webkit-animation:h-fade 1.2s linear .9s infinite;
+}
+.h-loading-flower .lines > div:nth-child(5):after{
+  -webkit-animation:h-fade 1.2s linear 1.0s infinite;
+}
+.h-loading-flower .lines > div:nth-child(6):after{
+  -webkit-animation:h-fade 1.2s linear 1.1s infinite;
+}
+/*转动动画：小花旋转*/
+.h-loading-flower-sm{
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin: auto;
+}
+.h-loading-flower-sm .lines{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -webkit-animation:h-roate 1.2s linear infinite;
+}
+.h-loading-flower-sm .lines > div{
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.h-loading-flower-sm .lines > div:before,
+.h-loading-flower-sm .lines > div:after{
+  position: absolute;
+  left: 0;
+  content: "";
+  height: 25%;
+  width: 100%;
+  background: #7b7b7b;
+  border-radius: 3px;
+}
+.h-loading-flower-sm .lines > div:before{
+  top: 0;
+}
+.h-loading-flower-sm .lines > div:after{
+  bottom: 0;
+}
+.h-loading-flower-sm .lines > div:nth-child(2){
+  -webkit-transform:rotate(45deg);
+}
+.h-loading-flower-sm .lines > div:nth-child(3){
+  -webkit-transform:rotate(90deg);
+}
+.h-loading-flower-sm .lines > div:nth-child(4){
+  -webkit-transform:rotate(135deg);
+}
+.h-loading-flower-sm .lines > div:nth-child(5){
+  -webkit-transform:rotate(180deg);
+}
+/*文本*/
+.h-loading-text {
+  margin: 3px 0;
+  font-size: 14px;
 }
